@@ -51,9 +51,13 @@ function createCarousel() {
     if (count < imgArr.length - 1) {
       count++;
       img.src = imgArr[count];
+      TweenMax.set(img, { xPercent: 0 }, 0);
+      TweenMax.from(img, 0.8, { xPercent: -50, ease: Power1.easeOut });
     } else {
       count = 0;
       img.src = imgArr[count];
+      TweenMax.set(img, { xPercent: 0 }, 0);
+      TweenMax.from(img, 0.8, { xPercent: -50, ease: Power1.easeOut });
     }
   }
 
@@ -61,9 +65,13 @@ function createCarousel() {
     if (count === 0) {
       count = imgArr.length - 1;
       img.src = imgArr[count];
+      TweenMax.set(img, { xPercent: 0 }, 0);
+      TweenMax.from(img, 0.8, { xPercent: -50, ease: Power1.easeOut });
     } else {
       count--;
       img.src = imgArr[count];
+      TweenMax.set(img, { xPercent: 0 }, 0);
+      TweenMax.from(img, 0.8, { xPercent: -50, ease: Power1.easeOut });
     }
   }
 
