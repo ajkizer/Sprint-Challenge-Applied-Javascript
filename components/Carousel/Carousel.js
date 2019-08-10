@@ -51,13 +51,13 @@ function createCarousel() {
     if (count < imgArr.length - 1) {
       count++;
       img.src = imgArr[count];
-      TweenMax.set(img, { xPercent: 0 }, 0);
-      TweenMax.from(img, 0.8, { xPercent: -50, ease: Power1.easeOut });
+      TweenMax.set(img, { opacity: 1 }, 0);
+      TweenMax.from(img, 0.8, { opacity: 0, ease: Power1.easeOut });
     } else {
       count = 0;
       img.src = imgArr[count];
-      TweenMax.set(img, { xPercent: 0 }, 0);
-      TweenMax.from(img, 0.8, { xPercent: -50, ease: Power1.easeOut });
+      TweenMax.set(img, { opacity: 1 }, 0);
+      TweenMax.from(img, 0.8, { opacity: 0, ease: Power1.easeOut });
     }
   }
 
@@ -65,13 +65,13 @@ function createCarousel() {
     if (count === 0) {
       count = imgArr.length - 1;
       img.src = imgArr[count];
-      TweenMax.set(img, { xPercent: 0 }, 0);
-      TweenMax.from(img, 0.8, { xPercent: -50, ease: Power1.easeOut });
+      TweenMax.set(img, { opacity: 1 }, 0);
+      TweenMax.from(img, 2, { opacity: 0, ease: Power1.easeOut });
     } else {
       count--;
       img.src = imgArr[count];
-      TweenMax.set(img, { xPercent: 0 }, 0);
-      TweenMax.from(img, 0.8, { xPercent: -50, ease: Power1.easeOut });
+      TweenMax.set(img, { opacity: 1 }, 0);
+      TweenMax.from(img, 2, { opacity: 0, ease: Power1.easeOut });
     }
   }
 
@@ -81,7 +81,7 @@ function createCarousel() {
   return carousel;
 }
 
-const body = document.querySelector("body");
+const header = document.querySelector(".header-container");
 let newCarousel = createCarousel();
 console.log(newCarousel);
-body.appendChild(newCarousel);
+header.appendChild(newCarousel);
