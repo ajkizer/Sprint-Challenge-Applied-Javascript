@@ -17,3 +17,48 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+const cardsContainer = document.querySelector(".cards-container");
+axios
+  .get("https://lambda-times-backend.herokuapp.com/articles")
+  .then(response => {
+    const articles = response.data.articles;
+    const keys = Object.keys(articles);
+    keys.forEach(item => {
+      const artKeys = Object.keys(articles[item]);
+      artKeys.forEach(key => {
+        const article = articles[item][artKeys[key]];
+        const create = createCard(article);
+        cardsContainer.appendChild(create);
+      });
+    });
+  });
+function createCard(item) {
+  //create elements
+  const card = document.createElement("div");
+  const headline = document.createElement("div");
+  const author = document.createElement("div");
+  const imgContainer = document.createElement("div");
+  const img = document.createElement("img");
+  const articleBy = document.createElement("span");
+
+  card.classList.add("card");
+  headline.classList.add("headline");
+  author.classList.add("author");
+  imgContainer.classList.add("img-container");
+
+  //append
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(imgContainer);
+  imgContainer.appendChild(img);
+  author.appendChild(articleBy);
+
+  //add classes
+
+  //add content
+  headline.textContent = item["headline"];
+  img.src = item["authorPhoto"];
+  articleBy.textContent = `By ${item["authorName"]}`;
+
+  return card;
+}
